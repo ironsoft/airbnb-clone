@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 from django_countries.fields import CountryField
 from core import models as core_models
@@ -54,7 +55,7 @@ class Photo(core_models.TimeStampedModel):
     """ Photo Model Definition """
 
     caption = models.CharField(max_length=80)
-    file = models.ImageField()
+    file = models.ImageField(upload_to="")
     room = models.ForeignKey(
         "Room", related_name="photos", on_delete=models.CASCADE)
 
@@ -91,3 +92,14 @@ class Room(core_models.TimeStampedModel):
 
     def __str__(self) -> str:
         return self.name
+
+    def save(self, *args, **kwargs):
+        self.city = str.capitalize(self.city)
+        super().save(*args, **kwargs)
+
+    def total_rating(self):
+        all_reviews = self.reviews.all()
+        all_ratings = 0
+        for review in all_reviews:
+            all_ratings += review.rating_average()
+        return all_ratings / len(all_reviews)
