@@ -13,10 +13,15 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
-        {% include "partials/header.html" %}
-
-        {% block content %}{% endblock content %}
-
+        <header>
+            {% include "partials/nav.html" %}
+            {% block search_bar %}
+                <form method="get" action="{% url "rooms:search" %}">
+                    <input name="city" placeholder="Search by City" />
+                </form>
+            {% endblock search_bar %}
+            {% block content %}{% endblock content %}
+        </header>
         {% include "partials/footer.html" %}
         <script src="" async defer></script>
     </body>
