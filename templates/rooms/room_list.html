@@ -1,28 +1,51 @@
 {% extends 'base.html' %}
 {% block title %}HOME{% endblock title %}
 {% block content %}
-    {{now}}
-    {% for room in rooms  %}
-    <h3>
-        <a href="{% url "rooms:detail" room.pk %}">
-            {{room.name}} / ${{room.price}}
-        </a>
-    </h3>
-    {% endfor %}
 
-    <h5>
-        {% if page_obj.has_previous %}
-            <a href="?page={{page_obj.previous_page_number}}">Previous</a>
-        {% endif %}
-        page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
-        {% if page_obj.has_next %}
-            <a href="?page={{page_obj.next_page_number}}">Next</a>
-        {% endif %}
-    </h5>
+<div class="container mx-auto pb-10">
 
-    {% for page in page_obj.paginator.page_range  %}
-        <a href="?page={{page}}"> {{page}} </a>
-    {% endfor %}
+    <div class="bg-gray-800 rounded-xl w-full h-50vh mt-32 mb-12 bg-cover bg-center" style="background-image:url(https://images.unsplash.com/photo-1647774199509-4af31d2c5d2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=934&q=80)">
+
+    </div>
+
+    <div class="text-center mb-10 text-gray-600">
+        <span class="mr-5"></span> 
+       <span class="border border-gray-500 px-2 py-1 rounded"><i class="fas fa-clock text-lg mr-2 text-gray-800"></i> {{now}} </span>
+    </div>
+    
+    <div class="flex flex-wrap mb-10">
+        {% for room in rooms  %}
+        {% include 'mixins/room_card.html' with room=room %}
+        {% endfor %}
+    </div>
+    
+     <div>
+        <div class="flex items-center justify-center mx-auto container">
+            {% if page_obj.has_previous %}
+            <a href="?page={{page_obj.previous_page_number}}" class="text-teal-500">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            {% endif %}
+            <span class="mx-3 font-medium text-lg" >
+             {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+            </span>
+            {% if page_obj.has_next %}
+                <a href="?page={{page_obj.next_page_number}}" class="text-teal-500">
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            {% endif %}
+        </div>
+
+        {% comment %} <div>
+            {% for page in page_obj.paginator.page_range  %}
+                <a href="?page={{page}}"> {{page}} </a>
+            {% endfor %}
+        </div> {% endcomment %}
+
+     </div>
+
+    
+</div>
 
     {% comment %} {% for page in page_range  %}
         <a href="?page={{page}}"> {{page}} </a>

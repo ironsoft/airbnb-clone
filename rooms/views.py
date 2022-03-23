@@ -20,7 +20,7 @@ class HomeView(ListView):
     """ HomeView Definition """
     model = models.Room
     # https://ccbv.co.uk/projects/Django/4.0/django.views.generic.list/ListView/
-    paginate_by = 10
+    paginate_by = 12
     paginate_orphans = 3
     context_object_name = "rooms"
     # ordering = "created"
@@ -41,7 +41,7 @@ class RoomDetail(DetailView):
     """ RommDetail Definition """
 
     model = models.Room
-    pk_url_kwarg = "potato"
+    # pk_url_kwarg = "potato"
 
 
 class SearchView(View):
