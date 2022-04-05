@@ -39,7 +39,7 @@ DJNANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_PARTY_APPS = ["django-countries", "django_seed", ]
+THIRD_PARTY_APPS = ["django_countries", "django_seed", ]
 
 PROJECT_APPS = [
     "core.apps.CoreConfig",
@@ -51,7 +51,7 @@ PROJECT_APPS = [
     "conversations.apps.ConversationsConfig",
 ]
 
-INSTALLED_APPS = DJNANGO_APPS + PROJECT_APPS
+INSTALLED_APPS = DJNANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -149,3 +149,7 @@ EMAIL_PORT = "587"
 EMAIL_HOST_USER = os.environ.get("MAILGUN_USERNAME")
 EMAIL_HOST_PASSWORD = os.environ.get("MAILGUN_PASSWORD")
 EMAIL_FROM = "sexy-guy@sandboxbe42d5bd53eb4cdbb1611c2b77d2f07c.mailgun.org"
+
+# Auth
+
+LOGIN_URL = "/users/login/"

@@ -16,21 +16,25 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     </head>
     <body class="text-gray-800 mt-24 font-light" >
+        {% include "partials/messages.html" %}
         <header class="container max-w-full inset-0 flex justify-between px-6 h-20 border-b border-gray-400 fixed bg-white">
             <div class="flex items-center w-9/12">
                 <a href="{% url "core:home"%}" class="mr-5">
                     <img class="w-8" src="{% static 'img/logo.png' %}" />
                 </a>
                 {% block search_bar %}
-                <form method="get" action="{% url "rooms:search" %}" class="w-9/12" >
+                <form method="get" action="{% url "rooms:search" %}" class="w-1/2" >
                     <input class="search-box w-full border px-5 font-medium text-gray-900 placeholder-gray-600 py-2 rounded-sm shadow-md hover:shadow-lg focus:outline-none" name="city" placeholder="Search by City" />
                 </form>
                 {% endblock search_bar %}
             </div>            
             {% include "partials/nav.html" %}
         </header>
-        {% block content %}{% endblock content %}
-        {% include "partials/footer.html" %}
+
+            {% block content %}{% endblock content %}
+            
+            {% include "partials/footer.html" %}
+
         <script src="" async defer></script>
     </body>
 </html>

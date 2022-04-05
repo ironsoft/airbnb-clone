@@ -18,13 +18,34 @@
 
 .btn{
     @apply w-full text-center font-medium text-lg rounded-sm py-5 mb-2 border-2;
+    &.btn--small {
+        @apply py-3 rounded-lg;
+    }
 }
 
-input{
+.btn-link {
+    @apply w-full text-center font-medium text-lg rounded-lg py-3 mb-2 text-white bg-red-500;
+}
+
+input,
+textarea {
     @apply w-full text-lg rounded-sm py-5 border-2 text-left border-gray-500 px-5 font-thin;
     &:focus {
         @apply outline-none border-teal-500;
     }
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+select {
+    @apply rounded-sm font-light text-lg w-full text-left border border-gray-600 px-5;
+    &:focus {
+        @apply outline-none border-teal-500;
+    }
+    height: 50px
 }
 
 form {
@@ -39,6 +60,45 @@ form {
             }
         }
     }
+}
+
+@keyframes messageFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    5% {
+        opacity: 1;
+        transform: translateY(50px);
+    }
+    95% {
+        opacity: 1;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+.message {
+    animation: messageFadeIn 3s ease-in-out forwards;
+    &.error {
+        @apply bg-red-600
+    }
+    &.info {
+        @apply bg-blue-500
+    }
+    &.success {
+        @apply bg-green-500
+    }
+    &.warning {
+        @apply bg-yellow-400
+    }
+}   
+
+.border-section {
+    @apply border-b border-gray-400 pb-8 mt-8;
 }
 
 @tailwind utilities;
