@@ -1,8 +1,9 @@
-from distutils.command.upload import upload
 from django.db import models
+from django.utils import timezone
 from django.urls import reverse
 from django_countries.fields import CountryField
 from core import models as core_models
+from cal import Calendar
 
 # Create your models here.
 
@@ -121,6 +122,20 @@ class Room(core_models.TimeStampedModel):
     def get_next_four_photos(self):
         photos = self.photos.all()[1:5]
         return photos
+
+    def get_calendars(self):
+        now = timezone.now()
+        this_year = now.year
+        next_year = this_year
+        this_month = now.month
+        next_month = this_month + 1
+        if this_month == 12:
+            next_month = 1
+            next_year = this_year + 1
+        this_month_cal = Calendar(this_year, this_month)
+        next_month_cal = Calendar(next_year, next_month)
+
+        return [this_month_cal, next_month_cal]
 
     # def get_beds(self):
     #     if self.beds == 1:

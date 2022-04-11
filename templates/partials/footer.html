@@ -1,3 +1,26 @@
+{% load i18n %}
+
 <footer class="container mx-auto text-center py-10 border-t font-medium text-gray-600">
-    &copy; 2022 Nbnb, Inc. All rights reserved. Please don't copy us.
+    <div class="flex flex-col">
+        <span>
+            {% trans "Please don't copy us." %} 
+         </span>
+         <span>
+             &copy; 2022 iShopfloor, Inc. {% trans "All rights reserved" %}. 
+         </span>
+    </div>
+    <div class="flex mt-10">
+        {% get_current_language as LANGUAGE_CODE %}
+        <select class="w-1/5 h-8" name="" id="js-lang">
+            <option value="en" 
+            {% if LANGUAGE_CODE == 'en' %}
+            selected{% endif %}
+            >English</option>
+            
+            <option value="ko" 
+            {% if LANGUAGE_CODE == 'ko' %}
+            selected{% endif %}
+            >한국어</option>
+        </select>
+    </div>
 </footer>

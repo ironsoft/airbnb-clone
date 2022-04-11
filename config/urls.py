@@ -23,6 +23,10 @@ urlpatterns = [
     path('', include('core.urls', namespace='core')),
     path("rooms/", include('rooms.urls', namespace='rooms')),
     path("users/", include('users.urls', namespace='users')),
+    path("reservations/", include('reservations.urls', namespace='reservations')),
+    path("reviews/", include('reviews.urls', namespace='reviews')),
+    path("lists/", include('lists.urls', namespace='lists')),
+    path("conversations/", include('conversations.urls', namespace='conversations')),
 ]
 
 if settings.DEBUG:

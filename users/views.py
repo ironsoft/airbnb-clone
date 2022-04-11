@@ -1,5 +1,8 @@
+from gettext import translation
 import os
 import requests
+from config import settings
+from django.http import HttpResponse
 from django.forms import forms
 from django.shortcuts import redirect, render, reverse
 from django.urls import reverse_lazy
@@ -296,6 +299,14 @@ def switch_hosting(request):
     except KeyError:
         request.session['is_hosting'] = True
     return redirect(reverse("core:home"))
+
+
+def switch_lang(request):
+    lang = request.GET.get("lang", None)
+    if lang is not None:
+        response = HttpResponse(200)
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
+    return response
 
 
 """ Login by View """

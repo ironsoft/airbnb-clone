@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -24,7 +24,10 @@
                 </a>
                 {% block search_bar %}
                 <form method="get" action="{% url "rooms:search" %}" class="w-1/2" >
-                    <input class="search-box w-full border px-5 font-medium text-gray-900 placeholder-gray-600 py-2 rounded-sm shadow-md hover:shadow-lg focus:outline-none" name="city" placeholder="Search by City" />
+                    <input 
+                    class="search-box w-full border px-5 font-medium text-gray-900 placeholder-gray-600 py-2 rounded-sm shadow-md hover:shadow-lg focus:outline-none" 
+                    name="city" 
+                    placeholder="{% trans "Search by City" %}" /> 
                 </form>
                 {% endblock search_bar %}
             </div>            
@@ -35,6 +38,13 @@
             
             {% include "partials/footer.html" %}
 
-        <script src="" async defer></script>
+        <script>
+            const langSelect = document.getElementById("js-lang");
+            const handleLangChange = () => {
+                const selected = langSelect.value;
+                fetch(`{% url 'users:switch-lang' %}?lang=${selected}`).then(() => window.location.reload());
+            }
+            langSelect.addEventListener("change", handleLangChange);
+        </script>
     </body>
 </html>

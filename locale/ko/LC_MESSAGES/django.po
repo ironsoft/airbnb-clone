@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-10 15:28+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: templates/base.html:30
+msgid "Search by City"
+msgstr "도시별 검색하기"
+
+#: templates/partials/footer.html:6
+msgid "Please don't copy us."
+msgstr "카피하지 마세요"
+
+#: templates/partials/footer.html:9
+msgid "All rights reserved"
+msgstr "모든 권리는 아이샵플로어(주)에 있습니다."
+
+#: templates/partials/nav.html:13
+msgid "Create Room"
+msgstr "룸 생성하기"
+
+#: templates/partials/nav.html:15
+msgid "Favorites"
+msgstr "즐겨찾기"
+
+#: templates/partials/nav.html:16
+msgid "Profile"
+msgstr "마이페이지"
+
+#: templates/partials/nav.html:17
+msgid "Log out"
+msgstr "로그아웃"
+
+#: templates/rooms/room_detail.html:30
+msgid "Save to Favorites"
+msgstr "즐겨찾기 추가하기"
+
+#: templates/rooms/room_list.html:33
+#, python-format
+msgid "Page %(current_page)s of %(total_pages)s"
+msgstr "페이지 %(current_page)s / 총 %(total_pages)s 중"
+
+#: users/mixins.py:13
+msgid "don't try this"
+msgstr "그렇게 시도하시면 안됩니다."
+
+#: users/mixins.py:25
+msgid "Can't go there!"
+msgstr "그렇게 접속할 수 없습니다."
+
+#: users/models.py:25
+msgid "Male"
+msgstr "남자"
+
+#: users/models.py:26
+msgid "Female"
+msgstr "여자"
+
+#: users/models.py:27
+msgid "Other"
+msgstr "기타"
+
+#: users/models.py:35
+msgid "Korean"
+msgstr "한국어"
+
+#: users/models.py:56
+msgid "avatar"
+msgstr "프로필 사진"
+
+#: users/models.py:57
+msgid "gender"
+msgstr "성별"
+
+#: users/models.py:59
+msgid "bio"
+msgstr "자기소개"
+
+#: users/models.py:60
+msgid "birth_date"
+msgstr "생년월일"
+
+#: users/models.py:61
+msgid "language"
+msgstr "언어"
+
+#: users/models.py:63
+msgid "currency"
+msgstr "통화"
+
+#: users/models.py:81
+msgid "Verify Airbnb Account"
+msgstr "에어비앤비 계정을 확인해 주세요"
