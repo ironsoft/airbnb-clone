@@ -7,7 +7,6 @@ register = template.Library()
 @register.simple_tag(takes_context=True)
 def on_favs(context, room):
     user = context.request.user
-    print('Hello', user)
     if not user.is_authenticated:
         return
     else:
